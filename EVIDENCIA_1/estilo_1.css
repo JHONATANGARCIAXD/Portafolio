@@ -31,8 +31,6 @@ h2 {
 
 }
 
-
-
 .div_1 {
     padding: 10px;
     background-color: 	#f0f8ff;
@@ -69,3 +67,16 @@ ul {
     color: rgb(50, 135, 50);
     font-weight: 500;
 }
+
+@media (max-width:500px){
+    .div_prin{
+        width: 70%;
+    }
+}
+
+@media (max-width:900px){
+    .div_prin{
+        width: 70%;
+    }
+}
+
