@@ -1,24 +1,24 @@
-*{
+* {
     margin: 0;
-    font-weight:900;
+    font-weight: 900;
 }
 
-.contenedor{
+.contenedor {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    margin:5px;
+    margin: 5px;
     padding: 40px;
     gap: 20px;
     background-color: #1D202B;
 }
 
-.contenedor-conciertos{
+.contenedor-conciertos {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    
+
 }
 
-.card{
+.card {
     border-radius: 10px;
     background-color: black;
     height: 300px;
@@ -27,22 +27,22 @@
     transition: 1s ease all;
 }
 
-.textos{
+.textos {
     display: flex;
     flex-direction: column;
     color: white;
     height: 80%;
     justify-content: space-between;
-    padding:20px;
-    
+    padding: 20px;
+
 }
 
-.banner{
+.banner {
     gap: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
     color: white;
     text-align: center;
     border-radius: 10px;
@@ -50,21 +50,64 @@
     background-position: center;
 }
 
-li{
+li {
     padding: 10px;
     list-style: none;
-    margin:0 ;
+    margin: 0;
 }
 
-ul{
+ul {
     padding: 0;
 }
-.boton{
+
+.boton {
     width: 90%;
     border-radius: 20px;
     padding: 10px;
     margin: 0;
-    background-color: #FFD600 ;
+    background-color: #FFD600;
 }
 
 
+@media (max-width:600px) {
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    .contenedor-conciertos {
+        grid-template-columns: 1fr;
+    }
+
+    .boton {
+        margin: 20px 0;
+    }
+
+    .titulo_banner {
+        margin: 20px 0;
+    }
+
+    .card {
+        margin: 10px 0;
+    }
+}
+
+
+@media (min-width: 601px) and (max-width: 1000px) {
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    .contenedor-conciertos {
+        grid-template-columns: 1fr 1fr;
+        gap:10px ;
+    }
+
+    .boton {
+        width: 70%;
+        margin: 20px 0;
+    }
+    .titulo_banner {
+        margin: 20px 0;
+    }
+
+}

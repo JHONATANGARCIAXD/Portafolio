@@ -234,6 +234,7 @@ footer {
     }
 
     .titulo_seccion3 {
+        font-size: 35px;
         text-align: center;
     }
 
@@ -389,7 +390,8 @@ footer {
     }
 
     .titulo_nombre {
-        text-align: center;
+        text-align: start;
+        width: 100%;
         font-size: 20px;
     }
 
