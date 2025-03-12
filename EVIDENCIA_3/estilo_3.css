@@ -422,3 +422,9 @@ footer {
         justify-content: end;
     }
 }
+
+@media((min-width:1024px) and (max-width:1300px)){
+    .img1{
+        margin-left: 20px;
+    }
+}
