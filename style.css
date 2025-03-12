@@ -104,7 +104,7 @@ h1 {
 
 /* RESPONSIVE */
 
-@media (max-width:500px) {
+@media (max-width:600px) {
     .proyectos {
         width: 80%;
         grid-template-columns: 1fr;
@@ -126,6 +126,29 @@ h1 {
     .titulo_nombre {
         font-size: 20px;
     }
-
-
 }
+
+@media((min-width:601px)){
+    .proyectos {
+        width: 80%;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 30px;
+    }
+
+    .proyecto {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .texto {
+        font-size: 30px;
+    }
+
+    .titulo_nombre {
+        font-size: 20px;
+    }
+}
+
