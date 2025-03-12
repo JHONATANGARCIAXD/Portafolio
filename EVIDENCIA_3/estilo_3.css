@@ -208,7 +208,7 @@ footer {
         display: flex;
         justify-content: center;
         width: 100%;
-        margin-top: 100px;
+        margin-top: 130px;
     }
 
     .link_info {
@@ -246,12 +246,8 @@ footer {
     }
 
     .link {
-        margin: 0 10px;
-        font-size: 20px;
-    }
-
-    .contenedor_links {
-        justify-content: end;
+        margin: 0 8px;
+        font-size: 18px;
     }
 
     .links {
@@ -265,6 +261,8 @@ footer {
         padding: 10px 0;
     }
 }
+
+
 
 @media ((min-width:601px)and (max-width:768px)) {
     .seccion1 {
