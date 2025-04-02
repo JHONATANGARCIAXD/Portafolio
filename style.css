@@ -2,16 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 body {
+    background: linear-gradient(135deg, #1b3b5f, #1a1a1a);
+    background-attachment: fixed;
     margin: 0;
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    height: 100%;
 }
+
+html {
+    height: 100%;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 nav {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: black;
-    position: fixed;
     color: white;
     width: 100%;
 }
@@ -30,12 +43,6 @@ nav {
     font-size: 20px;
 }
 
-.contenedor {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
 .proyectos {
     display: grid;
@@ -45,27 +52,17 @@ nav {
     gap: 20px;
 }
 
-.info{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin: 100px;
-    width: 100%;
-}
-
 .proyecto {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 80%;
-    height: 150px;
-    background-color: rgba(247, 247, 247, 0.173);
+    background-color: rgba(255, 255, 255, 0.1);
     color: white;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.612);
-    box-shadow: rgba(77, 77, 77, 0.82) 0px 2px 30px;
+    box-shadow: rgba(0, 0, 0, 0.82) 0px 2px 30px;
 }
 
 .link_proyecto {
@@ -131,7 +128,7 @@ h1 {
     }
 }
 
-@media((min-width:601px) and (max-width: 1200px)) {
+@media((min-width:601px) and (max-width: 1100px)) {
     .proyectos {
         width: 80%;
         grid-template-columns: 1fr 1fr;
