@@ -174,8 +174,9 @@ nav {
     gap: 100px;
 }
 
-.filtros {
-    display: none;
+.a {
+    height: 0;
+    overflow: hidden;
 }
 
 
@@ -597,10 +598,19 @@ footer {
 @media (max-width:500px) {
 
     .seccion2,
-    .encabezado_seccion2,
+    .encabezado_seccion2 span:nth-child(2),
     .seccion3,
     .info_nav {
         flex-direction: column;
+    }
+
+    .encabezado_seccion2 {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .titulo {
+        text-align: center;
     }
 
     .contenedor_seccion3,
@@ -622,7 +632,6 @@ footer {
         justify-content: end;
         width: 100%;
         height: 80px;
-        position: relative;
         padding: 0px 20px;
     }
 
@@ -630,29 +639,23 @@ footer {
         font-size: 40px;
     }
 
-    .filtros label {
-        display: flex;
-        flex-direction: column;
-        z-index: 40;
-        position: relative;
-    }
 
     label span {
-        padding: 2px 15px;
+        padding: 1.5px 15px;
         margin: 2px 0;
         background-color: black;
         transition: all .3s;
     }
 
-    .filtros:has(#menu_hambu_filtros:checked) label span:nth-child(1) {
-        transform: rotate(45deg) translate(2px, -5px);
+    .todo:has(#menu_hambu_filtros:checked) .filtros label span:nth-child(1) {
+        transform: rotate(45deg) translate(0px, -5px);
     }
 
-    .filtros:has(#menu_hambu_filtros:checked) label span:nth-child(2) {
+    .todo:has(#menu_hambu_filtros:checked) .filtros label span:nth-child(2) {
         display: none;
     }
 
-    .filtros:has(#menu_hambu_filtros:checked) label span:nth-child(3) {
+    .todo:has(#menu_hambu_filtros:checked) .filtros label span:nth-child(3) {
         transform: rotate(-45deg) translate(10px, -5px);
     }
 
@@ -661,8 +664,30 @@ footer {
     }
 
     .menu_hambu_filtros:checked+.a {
-        height: auto;
+        position: fixed;
+        top: 0;
+        height: 100vh;
         background-color: rgb(255, 255, 255);
+        overflow: auto;
+        margin: 40px 0;
+        width: 100%;
+    }
+
+    .filtros label {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .todo:has(#menu_hambu_filtros:checked) .filtros {
+        position: fixed;
+        top: 0;
+        z-index: 40;
+        background-color: rgb(255, 255, 255);
+    }
+
+    html:has(#menu_hambu_filtros:checked) body {
+        height: 0;
+        overflow: hidden;
     }
 
     .a .contenido {
@@ -671,8 +696,8 @@ footer {
     }
 
     .a {
-        width: 100%;
-        height: 0;
+        width: 0;
+        height: 10px;
         overflow: hidden;
         position: absolute;
         top: 0;
@@ -681,13 +706,21 @@ footer {
         transition: ease-in-out .3s;
     }
 
+    .a .size {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
     .seccion3 {
         margin: 0;
     }
 
+    .img_color img {
+        width: 220px;
+    }
 
-
-
+    .info_colum2 {
+        width: 100%;
+    }
 
     .contenido1 {
         display: flex;
@@ -702,7 +735,7 @@ footer {
         align-items: center;
         justify-content: center;
         width: 100%;
-        margin: 20px;
+        margin-bottom: 20px;
     }
 
     .contenido2 span:first-child {
@@ -712,18 +745,6 @@ footer {
         justify-content: center;
     }
 
-    .contenido2 span:nth-child(2) {
-        display: flex;
-        width: 100%;
-        gap: 20px;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .span_links_footer:nth-child(1) {
-        display: flex;
-    }
-
     .span_links_footer:nth-child(2) {
         display: flex;
         flex-wrap: wrap;
@@ -731,7 +752,7 @@ footer {
         align-items: center;
     }
 
-    footer{
+    footer {
         margin: 50px 0;
     }
 
@@ -752,19 +773,19 @@ footer {
     }
 
     .contenedor_2_footer {
+        width: 100%;
         flex-direction: column;
         gap: 30px;
     }
-    .s_1{
+
+    .s_1 {
         width: 100%;
         flex-direction: column;
         text-align: center;
+        gap: 10px;
     }
 
-    .contenedor_2_footer span:nth-child(2){
+    .contenedor_2_footer span:nth-child(2) {
         gap: 20px;
     }
-
-
-
 }
