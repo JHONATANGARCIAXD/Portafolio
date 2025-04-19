@@ -648,6 +648,7 @@ i {
         align-items: center;
         gap: 40px;
         order: 2;
+        grid-column: span 2;
     }
 
     .colum1 .card2{
