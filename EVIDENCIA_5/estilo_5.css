@@ -62,7 +62,20 @@ nav {
     gap: 15px;
 }
 
-.info_nav span:nth-child(3) {
+.info_menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.info_menu:nth-child(2) {
+    gap: 40px;
+}
+
+
+
+.info_menu:nth-child(3) {
     width: 15%;
 }
 
@@ -135,7 +148,7 @@ nav {
     width: 80%;
     height: 90px;
     font-weight: 800;
-    padding: 0 5px;
+    padding: 0 15px;
     border-radius: 5px;
     box-shadow: 2px 1px 20px rgba(0, 0, 0, 0.171);
     border: 1px solid rgba(128, 128, 128, 0.119);
@@ -429,9 +442,6 @@ nav {
 }
 
 
-.img_color img:hover {
-    transform: scale(1.1);
-}
 
 .z_1 {
     background-color: #cddabc;
@@ -586,12 +596,13 @@ footer {
 }
 
 
-
 /* ESTILOS MENUS HAMBUERGUESA */
+
 .menu_hambu_filtros,
 .filtros,
 .menu_prin,
-.menu {
+.menu,
+.menu_linea {
     display: none;
 }
 
@@ -601,7 +612,218 @@ footer {
 }
 
 
-@media ((max-width:400px)) {
+.menu_linea {
+    padding: 1.5px 15px;
+    margin: 2px 0;
+    background-color: white;
+    transition: all .3s;
+}
+
+/* ESTILOS MENU HAMBURGUESA PRINCIPAL */
+
+.menu {
+    align-items: center;
+    justify-content: center;
+    width: 0;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    transition: ease-in-out .3s;
+    font-size: 22px;
+    background-color: #ffffff;
+}
+
+.contenido_menu1 {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    height: 90%;
+    gap: 30px;
+    margin: 0 20px;
+}
+
+.contenido_menu1 .info_menu {
+    align-items: start;
+}
+
+.menu .linea {
+    width: 100%;
+    border: 1px solid black;
+    margin: 0;
+    padding: 0;
+}
+
+
+.menu .info_menu:nth-child(1),
+.menu .info_menu:nth-child(5) {
+    flex-direction: column;
+}
+
+.menu .info_menu:nth-child(3) {
+    gap: 10px;
+    width: 60%;
+    align-items: center;
+}
+
+.menu .info_menu:nth-child(3) .search {
+    background-color: #929292;
+}
+
+.menu .info_menu:nth-child(5) span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu .info_menu:nth-child(1) {
+    gap: 20px;
+}
+
+.menu_prin:checked+.menu {
+    width: 100%;
+    height: 90vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 78px;
+    overflow: auto;
+}
+
+.contenedor_prin:has(.menu_prin:checked) nav .info_nav .info_menu_import label .menu_linea:nth-child(1) {
+    transform: rotate(45deg) translate(0px, -5px);
+}
+
+.contenedor_prin:has(.menu_prin:checked) nav .info_nav .info_menu_import label .menu_linea:nth-child(2) {
+    display: none;
+}
+
+.contenedor_prin:has(.menu_prin:checked) nav .info_nav .info_menu_import label .menu_linea:nth-child(3) {
+    transform: rotate(-45deg) translate(10px, -5px);
+}
+
+.contenedor_prin:has(.menu_prin:checked) nav .info_nav .info_menu_import label {
+    position: relative;
+    top: 5px;
+}
+
+.contenedor_prin:has(.menu_prin:checked) nav .info_nav .info_menu_import label .menu_linea {
+    background-color: black;
+}
+
+.contenedor_prin:has(.menu_prin:checked) nav {
+    position: fixed;
+    top: 0;
+    background-color: rgb(176, 176, 176);
+    color: black;
+}
+
+html:has(.menu_prin:checked) body {
+    height: 0;
+    overflow: hidden;
+}
+
+.titulo {
+    text-align: center;
+}
+
+
+/* ESTILO MENU HAMBUERGUESA FILTROS */
+
+.todo {
+    position: relative;
+}
+
+.filtros {
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+    padding: 0px 20px;
+    background-color: rgb(147, 147, 147);
+    margin: 40px 0;
+    color: white;
+}
+
+.filtros p {
+    font-size: 20px;
+}
+
+.filtros label i {
+    font-size: 40px;
+}
+
+.todo:has(#menu_hambu_filtros:checked) .filtros label span:nth-child(1) {
+    transform: rotate(45deg) translate(0px, -5px);
+}
+
+.todo:has(#menu_hambu_filtros:checked) .filtros label span:nth-child(2) {
+    display: none;
+}
+
+.todo:has(#menu_hambu_filtros:checked) .filtros label span:nth-child(3) {
+    transform: rotate(-45deg) translate(10px, -5px);
+}
+
+.menu_hambu_filtros {
+    display: none;
+}
+
+.menu_hambu_filtros:checked+.a {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    overflow: auto;
+    margin: 40px 0;
+    width: 100%;
+}
+
+.filtros label {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo:has(#menu_hambu_filtros:checked) .filtros {
+    position: fixed;
+    top: 0;
+    z-index: 40;
+    margin: 0;
+}
+
+.todo:has(#menu_hambu_filtros:checked) .filtros label {
+    position: relative;
+    top: 5px;
+}
+
+html:has(#menu_hambu_filtros:checked) body {
+    height: 0;
+    overflow: hidden;
+}
+
+.a .contenido {
+    padding: 20px;
+    margin: 40px 0;
+}
+
+.a {
+    width: 0;
+    height: 10px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    transition: ease-in-out .3s;
+}
+
+.a .size {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+@media ((max-width:500px)) {
 
     .encabezado_seccion2 span:nth-child(2),
     .seccion3,
@@ -631,14 +853,14 @@ footer {
         gap: 50px;
     }
 
-    .menu_linea {
-        padding: 1.5px 15px;
-        margin: 2px 0;
-        background-color: white;
-        transition: all .3s;
-    }
 
-    /* ESTILOS MENU HAMBURGUESA PRINCIPAL */
+    /* ESTILOS MENUS */
+
+    .filtros,
+    .menu,
+    .menu_linea {
+        display: flex;
+    }
 
     .info_nav .info_menu {
         display: none;
@@ -659,62 +881,6 @@ footer {
         flex-direction: column;
     }
 
-
-    .menu {
-        display: block;
-        width: 0;
-        height: 100vh;
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 20;
-        transition: ease-in-out .3s;
-    }
-
-
-    .menu_prin:checked+.menu {
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        margin-top: 78px;
-        background-color: white;
-    }
-
-    .contenedor_prin:has(.menu_prin:checked) nav .info_nav .info_menu_import label .menu_linea:nth-child(1) {
-        transform: rotate(45deg) translate(0px, -5px);
-    }
-
-    .contenedor_prin:has(.menu_prin:checked) nav .info_nav .info_menu_import label .menu_linea:nth-child(2) {
-        display: none;
-    }
-
-    .contenedor_prin:has(.menu_prin:checked) nav .info_nav .info_menu_import label .menu_linea:nth-child(3) {
-        transform: rotate(-45deg) translate(10px, -5px);
-    }
-
-    .contenedor_prin:has(.menu_prin:checked) nav .info_nav .info_menu_import label {
-        position: relative;
-        top: 5px;
-    }
-
-    .contenedor_prin:has(.menu_prin:checked) nav {
-        position: fixed;
-        top: 0;
-        background-color: rgb(0, 0, 0);
-    }
-
-
-    html:has(.menu_prin:checked) body {
-        height: 0;
-        overflow: hidden;
-    }
-
-    .titulo {
-        text-align: center;
-    }
-
     .contenedor_seccion3,
     .colum2 {
         grid-template-columns: 1fr;
@@ -724,106 +890,14 @@ footer {
         display: none;
     }
 
-    /* ESTILO MENU HAMBUERGUESA FILTROS */
 
-    .todo {
-        position: relative;
-    }
-
-    .filtros {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        height: 80px;
-        padding: 0px 20px;
-        background-color: rgb(0, 0, 0);
-        margin: 40px 0;
-        color: white;
-    }
-
-    .filtros p {
-        font-size: 20px;
-    }
-
-    .filtros label i {
-        font-size: 40px;
-    }
-
-    .todo:has(#menu_hambu_filtros:checked) .filtros label span:nth-child(1) {
-        transform: rotate(45deg) translate(0px, -5px);
-    }
-
-    .todo:has(#menu_hambu_filtros:checked) .filtros label span:nth-child(2) {
-        display: none;
-    }
-
-    .todo:has(#menu_hambu_filtros:checked) .filtros label span:nth-child(3) {
-        transform: rotate(-45deg) translate(10px, -5px);
-    }
-
-    .menu_hambu_filtros {
-        display: none;
-    }
-
-    .menu_hambu_filtros:checked+.a {
-        position: fixed;
-        top: 0;
-        height: 100vh;
-        background-color: rgb(255, 255, 255);
-        overflow: auto;
-        margin: 40px 0;
-        width: 100%;
-    }
-
-    .filtros label {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .todo:has(#menu_hambu_filtros:checked) .filtros {
-        position: fixed;
-        top: 0;
-        z-index: 40;
-        margin: 0;
-    }
-
-    .todo:has(#menu_hambu_filtros:checked) .filtros label {
-        position: relative;
-        top: 5px;
-    }
-
-    html:has(#menu_hambu_filtros:checked) body {
-        height: 0;
-        overflow: hidden;
-    }
-
-    .a .contenido {
-        padding: 20px;
-        margin: 40px 0;
-    }
-
-    .a {
-        width: 0;
-        height: 10px;
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 20;
-        transition: ease-in-out .3s;
-    }
-
-    .a .size {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
+    /* ESTILOS SECCION 3 */
     .seccion3 {
         margin: 0;
     }
 
     .img_color img {
-        width: 250px;
+        width: 240px;
     }
 
     .info_colum2 {
@@ -896,4 +970,536 @@ footer {
     .contenedor_2_footer span:nth-child(2) {
         gap: 20px;
     }
+}
+
+
+@media ((min-width:501px) and (max-width:640px)) {
+
+    .encabezado_seccion2 span:nth-child(2),
+    .seccion3,
+    .info_nav {
+        flex-direction: column;
+    }
+
+    .encabezado_seccion2 {
+        flex-direction: column;
+        height: auto;
+        gap: 40px;
+    }
+
+    .encabezado_seccion2 span:first-child {
+        font-size: 20px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .encabezado_seccion2 span:nth-child(3) {
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .email_sec2 {
+        gap: 50px;
+    }
+
+
+    /* ESTILOS MENUS */
+
+    .filtros,
+    .menu,
+    .menu_linea {
+        display: flex;
+    }
+
+    .info_nav .info_menu {
+        display: none;
+    }
+
+    .info_menu_import {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .info_menu_import i {
+        display: none;
+    }
+
+    .info_nav label {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenedor_seccion3 {
+        width: 90%;
+        grid-template-columns: 1fr;
+    }
+
+    .colum2 {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+
+    .colum1 {
+        display: none;
+    }
+
+
+    /* ESTILOS SECCION 3 */
+    .seccion3 {
+        margin: 0;
+    }
+
+    .img_color img {
+        width: 220px;
+        height: 100%;
+    }
+
+    .info_colum2 {
+        width: 100%;
+    }
+
+    .contenido1 {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: auto;
+        gap: 30px;
+        order: 2;
+    }
+
+    .contenido2 {
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .contenido2 span:first-child {
+        width: 100%;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .span_links_footer:nth-child(2) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer {
+        margin: 50px 0;
+    }
+
+    .cont_footer {
+        gap: 30px;
+    }
+
+    .contenido_footer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contenido_footer2 {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contenedor_2_footer {
+        width: 100%;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .s_1 {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .contenedor_2_footer span:nth-child(2) {
+        gap: 20px;
+    }
+}
+
+
+
+@media ((min-width:641px) and (max-width:920px)) {
+
+    .encabezado_seccion2 span:nth-child(2),
+    .seccion3,
+    .info_nav {
+        flex-direction: column;
+    }
+
+    .encabezado_seccion2 {
+        flex-direction: column;
+        height: auto;
+        gap: 40px;
+    }
+
+    .encabezado_seccion2 span:first-child {
+        font-size: 20px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .encabezado_seccion2 span:nth-child(3) {
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .email_sec2 {
+        gap: 50px;
+    }
+
+    /* ESTILOS MENUS */
+
+
+    .filtros,
+    .menu,
+    .menu_linea {
+        display: flex;
+    }
+
+    .info_nav .info_menu {
+        display: none;
+    }
+
+    .info_menu_import {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .info_menu_import i {
+        display: none;
+    }
+
+    .info_nav label {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenedor_seccion3 {
+        width: 90%;
+        grid-template-columns: 1fr;
+    }
+
+    .colum2 {
+        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .colum1 {
+        display: none;
+    }
+
+
+    /* ESTILOS SECCION 3  */
+
+    .seccion3 {
+        margin: 0;
+    }
+
+    .img_color img {
+        width: 280px;
+    }
+
+    .info_colum2 {
+        width: 100%;
+    }
+
+    .contenido1 {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: auto;
+        gap: 30px;
+        order: 2;
+    }
+
+    .contenido2 {
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .contenido2 span:first-child {
+        width: 100%;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .span_links_footer:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer {
+        margin: 50px 0;
+    }
+
+    .cont_footer {
+        gap: 30px;
+    }
+
+    .contenido_footer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contenido_footer2 {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contenedor_2_footer {
+        width: 100%;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .s_1 {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .contenedor_2_footer span:nth-child(2) {
+        gap: 20px;
+    }
+}
+
+
+@media ((min-width:921px) and (max-width:1000px)) {
+
+    .encabezado_seccion2 span:nth-child(2),
+    .seccion3,
+    .info_nav {
+        flex-direction: column;
+    }
+
+    .encabezado_seccion2 {
+        flex-direction: column;
+        height: auto;
+        gap: 40px;
+    }
+
+    .encabezado_seccion2 span:first-child {
+        font-size: 20px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .encabezado_seccion2 span:nth-child(3) {
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .email_sec2 {
+        gap: 50px;
+    }
+
+    /* ESTILOS MENUS */
+
+
+    .filtros,
+    .menu,
+    .menu_linea {
+        display: flex;
+    }
+
+    .info_nav .info_menu {
+        display: none;
+    }
+
+    .info_menu_import {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .info_menu_import i {
+        display: none;
+    }
+
+    .info_nav label {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenedor_seccion3 {
+        width: 100%;
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    .colum2 {
+        gap: 20px;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .colum1 {
+        display: none;
+    }
+
+
+    /* ESTILOS SECCION 3  */
+
+    .seccion3 {
+        margin: 0;
+    }
+
+    .img_color img {
+        width: 100%;
+    }
+
+    .info_colum2 {
+        width: 100%;
+    }
+
+    .contenido1 {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: auto;
+        gap: 30px;
+        order: 2;
+    }
+
+    .contenido2 {
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .contenido2 span:first-child {
+        width: 100%;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .span_links_footer:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer {
+        margin: 50px 0;
+    }
+
+    .cont_footer {
+        gap: 30px;
+    }
+
+    .contenido_footer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contenido_footer2 {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contenedor_2_footer {
+        width: 100%;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .s_1 {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .contenedor_2_footer span:nth-child(2) {
+        gap: 20px;
+    }
+}
+
+@media ((min-width:1001px) and (max-width:1200px)) {
+
+    .seccion3 {
+        flex-direction: column;
+    }
+
+
+    .email_sec2 {
+        gap: 50px;
+    }
+
+
+
+    /* ESTILOS MENUS */
+
+
+    .filtros,
+    .menu,
+    .menu_linea {
+        display: none;
+    }
+
+
+    .contenedor_seccion3 {
+        width: 100%;
+        grid-template-columns: 1fr 2fr;
+        padding: 0 20px;
+        gap: 20px;
+    }
+
+    .colum1 {
+        justify-content: normal;
+        position: sticky;
+        top: 20px;
+        height: 100vh;
+        overflow-y: auto;
+        padding: 0 10px;
+    }
+
+    .colum2 {
+        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    /* ESTILOS SECCION 3  */
+
+
+    .img_color img {
+        width: 90%;
+    }
+
+    .info_colum2 {
+        width: 100%;
+    }
+
+
+    .contenido1{
+        flex-direction: column;
+    }
+
 }
