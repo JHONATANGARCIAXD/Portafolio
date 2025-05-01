@@ -323,7 +323,7 @@ i {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
 }
 
 .colum1 .info1_sec2 {
@@ -444,7 +444,7 @@ i {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
 }
 
 .colum3 .info1_sec2 {
