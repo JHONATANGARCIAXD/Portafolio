@@ -737,6 +737,13 @@ i {
         height: 100vh;
     }
 
+    .contenedor{
+        margin: 20px 0;
+    }
+    .contenido{
+        margin: 20px 0;
+    }
+    
     nav {
         z-index: 2;
         width: 100%;
