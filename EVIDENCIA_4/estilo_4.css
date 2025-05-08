@@ -149,9 +149,6 @@ i {
     position: absolute;
 }
 
-
-
-
 /* SECCION 2  */
 
 .seccion2 {
@@ -163,7 +160,6 @@ i {
 
 .contenedor {
     display: flex;
-    align-items: center;
     justify-content: center;
     width: 70%;
     height: 90%;
@@ -655,7 +651,6 @@ i {
         height: 100%;
     }
 
-
     .avatar {
         position: static;
         margin-top: 30px;
@@ -676,6 +671,7 @@ i {
 
     .cont_links2 {
         flex-direction: column;
+        
     }
 
     .link_cont {
@@ -703,6 +699,7 @@ i {
     .contenedor {
         width: 80%;
         margin: 0;
+        height: auto;
     }
 
     .cont3_sec2 {
