@@ -187,7 +187,6 @@ i {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     background-color: #F7F7F7;
 }
 
@@ -238,7 +237,6 @@ i {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     background-color: #F1F1F1;
 }
 
