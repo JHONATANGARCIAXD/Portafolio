@@ -3,6 +3,10 @@
     margin: 0
 }
 
+body {
+    min-width: 300px;
+}
+
 a,
 i {
     cursor: pointer;
@@ -150,8 +154,8 @@ nav {
     font-weight: 800;
     padding: 0 15px;
     border-radius: 5px;
-    box-shadow: 2px 1px 20px rgba(0, 0, 0, 0.171);
-    border: 1px solid rgba(128, 128, 128, 0.119);
+    box-shadow: 0px 10px 10px -3px rgba(0, 0, 0, 0.043);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.119);
     color: #7f8eb1;
 }
 
@@ -161,6 +165,7 @@ nav {
     align-items: center;
     color: #6E7483;
     text-align: center;
+    width: 22%;
 }
 
 .encabezado_seccion2 span:nth-child(2) {
@@ -186,7 +191,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 100px;
+    gap: 50px;
 }
 
 /* SECCION 3 */
@@ -243,15 +248,11 @@ nav {
     margin: 25px 0;
 }
 
-
-
 .categorias span hr {
     width: 100%;
     margin: 0 10px;
-    border: 1px solid rgb(21, 20, 20);
+    border: 1px solid rgb(223 224 225);
 }
-
-/* PRECIOS */
 
 .precios {
     display: grid;
@@ -265,14 +266,55 @@ nav {
     gap: 10px;
 }
 
-.precios span input {
-    width: 20px;
-    height: 20px;
-    transition: .2s ease-in-out;
+.precios span p {
+    display: flex;
+    align-items: center;
+    height: 25px;
 }
 
-.precios span input:checked {
-    transform: scale(1.2);
+.precios span label {
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background-color: rgb(255 255 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+    border: 1px solid #bcbcbd;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.066);
+}
+
+.precios span label i {
+    display: none;
+    color: white;
+    font-weight: 800;
+}
+
+.precios span input {
+    display: none;
+}
+
+.precios span input:checked+label {
+    background-color: rgb(0 117 255);
+    border: none;
+}
+
+.precios span input:checked+label i {
+    display: block;
+    animation: che .4s ease-in-out;
+}
+
+@keyframes che {
+    0% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 /* COLORES */
@@ -290,7 +332,7 @@ nav {
     justify-content: space-between;
     width: 100%;
     margin: 10px 0;
-    
+
 }
 
 .colores input {
@@ -423,7 +465,7 @@ nav {
     gap: 30px;
     width: 100%;
     background-color: white;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.325);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.249);
     border: 1px solid rgba(128, 128, 128, 0.742);
 }
 
@@ -490,6 +532,11 @@ nav {
     display: flex;
     justify-content: space-between;
 }
+
+.negrilla {
+    font-weight: 700;
+}
+
 
 .carro_compras {
     display: flex;
@@ -578,7 +625,7 @@ footer {
     align-items: center;
     justify-content: space-between;
     width: 70%;
-    text-align: center;
+
 }
 
 .contenedor_2_footer span:nth-child(2) {
@@ -960,6 +1007,8 @@ html:has(#menu_hambu_filtros:checked) body {
     .contenedor_seccion3,
     .colum2 {
         grid-template-columns: 1fr;
+        width: 95%;
+        justify-items: center;
     }
 
     .colum1,
@@ -986,7 +1035,7 @@ html:has(#menu_hambu_filtros:checked) body {
         align-items: center;
         flex-direction: column;
         width: auto;
-        gap: 30px;
+        gap: 40px;
         order: 2;
     }
 
@@ -1016,7 +1065,7 @@ html:has(#menu_hambu_filtros:checked) body {
     }
 
     .cont_footer {
-        gap: 30px;
+        gap: 50px;
     }
 
     .contenido_footer {
@@ -1024,6 +1073,7 @@ html:has(#menu_hambu_filtros:checked) body {
         justify-content: center;
         align-items: center;
         text-align: center;
+        gap: 30px;
     }
 
     .contenido_footer2 {
@@ -1041,7 +1091,7 @@ html:has(#menu_hambu_filtros:checked) body {
         width: 100%;
         flex-direction: column;
         text-align: center;
-        gap: 10px;
+        gap: 20px;
     }
 
     .contenedor_2_footer span:nth-child(2) {
@@ -1173,7 +1223,7 @@ html:has(#menu_hambu_filtros:checked) body {
     }
 
     .cont_footer {
-        gap: 30px;
+        gap: 50px;
     }
 
     .contenido_footer {
@@ -1181,6 +1231,7 @@ html:has(#menu_hambu_filtros:checked) body {
         justify-content: center;
         align-items: center;
         text-align: center;
+        gap: 20px;
     }
 
     .contenido_footer2 {
@@ -1327,7 +1378,7 @@ html:has(#menu_hambu_filtros:checked) body {
     }
 
     .cont_footer {
-        gap: 30px;
+        gap: 50px;
     }
 
     .contenido_footer {
@@ -1335,6 +1386,7 @@ html:has(#menu_hambu_filtros:checked) body {
         justify-content: center;
         align-items: center;
         text-align: center;
+        gap: 20px;
     }
 
     .contenido_footer2 {
@@ -1480,7 +1532,7 @@ html:has(#menu_hambu_filtros:checked) body {
     }
 
     .cont_footer {
-        gap: 30px;
+        gap: 50px;
     }
 
     .contenido_footer {
@@ -1488,6 +1540,7 @@ html:has(#menu_hambu_filtros:checked) body {
         justify-content: center;
         align-items: center;
         text-align: center;
+        gap: 20px;
     }
 
     .contenido_footer2 {
@@ -1518,10 +1571,7 @@ html:has(#menu_hambu_filtros:checked) body {
         flex-direction: column;
     }
 
-    .email_sec2 {
-        gap: 50px;
-    }
-
+ 
     /* ESTILOS MENUS */
 
     .filtros,
@@ -1531,11 +1581,25 @@ html:has(#menu_hambu_filtros:checked) body {
         display: none;
     }
 
-
-
     /* ESTILOS SECCION2 */
     .encabezado_seccion2 {
         width: 90%;
+        gap: 50px;
+    }
+
+    .encabezado_seccion2 span:first-child {
+        text-align: center;
+        width: 34%;
+
+    }
+
+    .encabezado_seccion2 span:nth-child(2) {
+        justify-content: end;
+
+    }
+
+    .encabezado_seccion2 span:nth-child(3) {
+        align-items: center;
     }
 
     .contenedor_seccion3 {
@@ -1556,7 +1620,7 @@ html:has(#menu_hambu_filtros:checked) body {
 
     .colum2 {
         gap: 20px;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         padding-left: 10px;
     }
 
@@ -1570,8 +1634,18 @@ html:has(#menu_hambu_filtros:checked) body {
         width: 100%;
     }
 
+    .cont_footer {
+        width: 85%;
+    }
+
     .contenido1 {
+        width: 64%;
         gap: 30px;
+        padding: 0 15px;
+    }
+
+    .contenido2 {
+        width: 32%;
     }
 
 
