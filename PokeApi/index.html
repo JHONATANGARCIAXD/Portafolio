@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POKEAPI</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+<body>
+
+    <div class="cont_prin">
+        <div class="cont_foto_poke_titulo ">
+            <img src="./img/titulo.png" alt="">
+        </div>
+        <div class="conts">
+            <div class="card_poke">
+                <div class="card_front" id="color">
+                    <div class="fondo" id="fondo_poke">
+                        <div class="info_poke">
+                            <h4 id="nombre_poke"></h4>
+                        </div>
+                        <div class="cont_img">
+                            <img id="img_poke">
+                        </div>
+                        <div class="info_poke">
+                            <p id="numero_poke"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+                <div class="cont_info_biome">
+                    <h2>INFORMACIÓN BIOMÉTRICA</h2>
+                    <div class="cont_valores">
+                        <h3 id="altura_poke"></h3>
+                        <h3 id="peso_poke"></h3>
+                    </div>
+                </div>
+                <div class="tipos">
+                    <h2>TIPOS(S) DEL POKEMON</h2>
+                    <div id="tipo">
+                    </div>
+                </div>
+                <div class="cont_estadisticas">
+                    <h2>ESTADISTICAS</h2>
+                    <div id="estadisticas">
+                    </div>
+                    <span>
+                        <h4 id="numero_poke"></h4>
+                    </span>
+                </div>
+
+                <div class="debilidades">
+                    <h2>DEBILIDAD(ES)
+                    </h2>
+                    <div id="debil">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
+
+</html>

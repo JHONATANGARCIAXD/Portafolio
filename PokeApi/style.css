@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: #E0E0E0;
+    font-family: 'Oswald';
+    margin: 0;
+    min-width: 300px;
+}
+
+
+.cont_prin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.cont_foto_poke_titulo img {
+    width: 100%;
+    height: 200px;
+    animation: colores 1s ease-in;
+}
+
+@keyframes colores {
+    0% {
+        filter: drop-shadow(2px 2px 30px blue);
+    }
+
+    20% {
+        filter: drop-shadow(2px 2px 30px green);
+    }
+
+    40% {
+        filter: drop-shadow(2px 2px 30px yellow);
+    }
+
+    100% {
+        filter: drop-shadow(2px 2px 30px blue);
+    }
+
+}
+
+.conts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 90vh;
+    background-color: #2D2D2D;
+    gap: 70px;
+    border-radius: 10px;
+    color: #FFFFFF;
+    box-shadow: 0 9px 20px rgba(0, 0, 0, 0.516);
+    border: 2px solid #ffffff;
+}
+
+.card_poke {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    padding: 10px;
+    gap: 30px;
+}
+
+.card_front {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 100%;
+    height: 500px;
+    padding: 20px;
+    box-shadow: 0 0 10px 2px black;
+    border-radius: 5px;
+}
+
+.fondo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 2px gray solid;
+    box-shadow: 0 0 6px .5px gray;
+}
+
+
+.info_poke {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.535);
+    backdrop-filter: blur(50px);
+    background-color: rgba(255, 255, 255, 0.179);
+    font-size: 45px;
+    border-radius: 10px 10px 0 0;
+    color: white;
+    border-bottom: 1px rgba(255, 255, 255, 0.179) solid;
+
+}
+
+.fondo .info_poke:nth-child(3) {
+    border-radius: 0 0 10px 10px;
+    border-top: 1px rgba(255, 255, 255, 0.179) solid;
+}
+
+.info_poke h4,
+p {
+    margin: 0;
+}
+
+.info_poke p {
+    font-size: 30px;
+}
+
+.cont_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+
+.cont_img img {
+    width: 280px;
+    height: 280px;
+    filter: drop-shadow(10px 10px 10px black);
+}
+
+.cosas {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    background-color: rgba(192, 192, 192, 0.885);
+
+}
+
+.cont_estadisticas {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+#debil,
+#tipo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.cont_info_biome {
+    text-align: center;
+}
+
+.cont_valores {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 0.179);
+    padding: 0 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+    .conts {
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+        padding: 20px 0;
+        width: 100%;
+    }
+
+    .info {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+
+    .card_poke {
+        width: 98%;
+    }
+
+    .cont_estadisticas {
+        order: 3;
+    }
+    
+    .cont_img img{
+        width: 90%;
+    }
+
+    .cont_foto_poke_titulo img{
+        width: 100%;
+    }
+
+    .info_poke h4{
+        font-size: 35px;
+    }
+
+}
+
+
+@media ((min-width: 501px) and (max-width: 750px)) {
+    .conts {
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+        padding: 20px 0;
+        width: 100%;
+    }
+
+    .info {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+
+    .card_poke {
+        width: 80%;
+    }
+
+    .cont_estadisticas {
+        width: 100%;
+        order: 3;
+    }
+
+}
+
+
+@media ((min-width: 751px) and (max-width: 1200px)) {
+    .conts {
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+        padding: 20px 0;
+        width: 100%;
+    }
+
+    .info {
+        grid-template-columns: 1fr 1fr;
+        width: 90%;
+        height: auto;
+    }
+
+    .card_poke {
+        width: 50%;
+    }
+
+    .cont_estadisticas {
+        width: 100%;
+    }
+
+
+}
