@@ -1,18 +1,207 @@
-*{
+* {
     box-sizing: content-box;
 }
 
-#cont_citas{
+
+.cont_prin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    background-color: #F1F3F5;
+    min-height: 100vh;
+}
+
+.f {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    gap: 40px;
+    background-color: #007BFF;
+    padding: 30px 0;
+    color: white;
+}
+
+.cont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    padding: 15px 10px;
+    border-radius: 10px;
+}
+
+#cont_citas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    row-gap: 20px;
+    gap: 20px;
+}
+
+.cont_prin h2 {
+    color: #3E6DA7;
+}
+
+
+.cont_filtro {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
-    width: 100%;
+    width: 50%;
+    gap: 20px;
 }
 
-.CardCita{
+.cont_filtro :nth-child(1) {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search:focus {
+    box-shadow: 0 0 1px 1px #9babc110 !important;
+}
+
+
+#filtro:focus {
+    box-shadow: 0 0 2px 1px #9babc1 !important;
+}
+
+.CardCita {
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    width: 30% ;
+    background-color: #ffffff;
+    height: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(128, 128, 128, 0.2);
+    gap: 10px;
+    transition: all .4s ease-in-out;
+    word-break: break-word;
+    justify-content: space-between;
+    font-size: 17px;
+
+}
+
+.CardCita:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.063);
+}
+
+
+.contenido_cita {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info_conte {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.contenido_cita p {
+    margin: 0;
+}
+
+.fecha_hora {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.negrilla {
+    font-weight: 700;
+}
+
+.numero_cita {
+    color: rgba(0, 0, 0, 0.176);
+    font-size: 20px;
+}
+
+.cont_buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+button[name='editar'] {
+    border-radius: 5px;
+    padding: 5px 20px;
+    background-color: #0278e0;
+    color: #ffffff;
+    border: 1px solid #000000;
+    width: 50%;
+    transition: all .3s ease-in-out;
+}
+
+button[name='editar']:hover {
+    background-color: #026cc9;
+    box-shadow: 0 1px 2px 1px #014581;
+}
+
+button[name='eliminar'] {
+    border-radius: 5px;
+    padding: 5px 20px;
+    background-color: #ef1811d6;
+    color: #ffffff;
+    border: 1px solid #000000;
+    width: 50%;
+    transition: all .3s ease-in-out;
+}
+
+button[name='eliminar']:hover {
+    background-color: #cf0903;
+    box-shadow: 0 1px 2px 1px #670400;
+}
+
+.cont_img_nombre {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img_animal {
+    width: 70px;
+    height: 70px;
+    filter: drop-shadow(0 0 3px rgb(0, 0, 0));
+}
+
+
+@media (max-width: 500px) {
+    #cont_citas {
+        grid-template-columns: 1fr;
+    }
+
+    .cont {
+        width: 95%;
+        flex-direction: column;
+        align-items: start;
+        gap: 30px;
+    }
+
+    #cont_citas {
+        width: 98%;
+    }
+
+
+    .cont_filtro {
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cont_search {
+        display: flex;
+        justify-content: center;
+        width: 100% !important;
+    }
+
 }
