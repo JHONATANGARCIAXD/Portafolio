@@ -20,30 +20,28 @@
 
         <div class="cont">
             <div class="cont_filtro">
-                <div class="input-group">
+                <div class="filtro_estado">
                     <label for="filtro" class="label_selct_fil">FILTRAR POR: </label>
                     <select class="form-select" name="filtro" id="filtro" aria-label="Default select example">
                         <option value="Abierta">Abierta</option>
                         <option value="Terminada">Terminada</option>
                         <option value="Anulada">Anulada</option>
                     </select>
-
                 </div>
 
-                <div class="input-group">
-                    <span class="input-group-text d" id="basic-addon1"><i class="bi bi-search"></i></span>
-                    <input type="text" class="form-control search" id="search"
-                        placeholder="Nombre Animal o Propietario" aria-label="Username"
-                        aria-describedby="basic-addon1">
+                <div class="filtro_buscar">
+                    <div class="input-group">
+                        <span class="input-group-text d" id="basic-addon1"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control search" id="search"
+                            placeholder="Nombre Animal o Propietario" aria-label="Username"
+                            aria-describedby="basic-addon1">
+                    </div>
                 </div>
+
+
             </div>
-
-
-
-
-
             <div>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <button type="button" class="btn btn-primary btn_nueva_cita" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <i class="bi bi-plus-lg"></i> NUEVA CITA
                 </button>
 
@@ -51,9 +49,8 @@
         </div>
 
 
-
+        <h2 id="texto"></h2>
         <div id="cont_citas">
-
         </div>
 
 
@@ -73,34 +70,34 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="nombremascota" class="form-label">Nombre Mascota</label>
+                        <label for="nombremascota" class="form-label">Nombre Mascota*</label>
                         <input type="text" class="form-control" id="nombremascota">
                     </div>
 
                     <div class="mb-3">
-                        <label for="propietario" class="form-label">Propietario</label>
+                        <label for="propietario" class="form-label">Propietario*</label>
                         <input type="email" class="form-control" id="propietario">
                     </div>
 
                     <div class="mb-3">
-                        <label for="telefono" class="form-label">Telefono</label>
+                        <label for="telefono" class="form-label">Telefono*</label>
                         <input type="tel" class="form-control" id="telefono" maxlength="10">
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="fecha" class="form-label">Fecha Cita</label>
+                            <label for="fecha" class="form-label">Fecha Cita*</label>
                             <input type="date" class="form-control" id="fecha">
                         </div>
 
                         <div class="col-md-6">
-                            <label for="hora" class="form-label">Hora Cita</label>
+                            <label for="hora" class="form-label">Hora Cita*</label>
                             <input type="time" class="form-control" id="hora">
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="tipo_mascota" class="form-label">Tipo De Mascota</label>
+                        <label for="tipo_mascota" class="form-label">Tipo De Mascota*</label>
                         <select class="form-select" id="tipo_mascota" aria-label="Default select example">
                             <option selected>Seleccione Uno</option>
                             <option value="perro">Perro</option>
@@ -117,7 +114,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="sintomas" class="form-label">Sintomas</label>
+                        <label for="sintomas" class="form-label">Sintomas*</label>
                         <textarea class="form-control" id="sintomas" rows="6" maxlength="400"></textarea>
                     </div>
 

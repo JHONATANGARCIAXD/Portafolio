@@ -1,15 +1,23 @@
 * {
     box-sizing: content-box;
 }
+body{
+    min-width: 300px;
+}
 
+/* ESTILO CONTENEDOR PRINCIPAL */
 
 .cont_prin {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 40px;
-    background-color: #F1F3F5;
+    background-color: #1A2026;
     min-height: 100vh;
+}
+
+.cont_prin h2 {
+    color: #4384B4;
 }
 
 .f {
@@ -18,48 +26,48 @@
     text-align: center;
     width: 100%;
     gap: 40px;
-    background-color: #007BFF;
     padding: 30px 0;
-    color: white;
+    color: #4384B4;
+    background-color: #9babc10c;
+
 }
 
 .cont {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
-    padding: 15px 10px;
+    width: 90%;
+    padding: 30px 10px;
     border-radius: 10px;
 }
 
-#cont_citas {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    row-gap: 20px;
-    gap: 20px;
-}
-
-.cont_prin h2 {
-    color: #3E6DA7;
-}
-
-
 .cont_filtro {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    width: 50%;
+    gap: 20px;
+    color: #ffffff;
+}
+
+.filtro_estado {
+    display: flex;
     align-items: center;
     width: 50%;
     gap: 20px;
 }
 
-.cont_filtro :nth-child(1) {
+
+.filtro_estado select {
+    width: 60%;
+    max-width: 200px;
+}
+
+.filtro_buscar {
     display: flex;
     align-items: center;
-    gap: 20px;
+    width: 50%;
 }
+
 
 .search:focus {
     box-shadow: 0 0 1px 1px #9babc110 !important;
@@ -70,10 +78,34 @@
     box-shadow: 0 0 2px 1px #9babc1 !important;
 }
 
+.btn_nueva_cita {
+    background-color: #26427B !important;
+    border: 1px solid #284989 !important;
+}
+
+.btn_nueva_cita:hover {
+    background-color: #2d5bb6 !important
+}
+
+#texto {
+    text-align: center;
+    color: #ffffff;
+}
+
+#cont_citas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    row-gap: 20px;
+    gap: 20px;
+}
+
 .CardCita {
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
+    background-color: #4b535a68;
     height: 100%;
     padding: 20px;
     border-radius: 10px;
@@ -83,14 +115,13 @@
     word-break: break-word;
     justify-content: space-between;
     font-size: 17px;
-
+    color: #ffffff;
 }
 
 .CardCita:hover {
     transform: translateY(-1px);
-    box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.063);
+    box-shadow: 0 0 5px 4px rgba(89, 86, 86, 0.112);
 }
-
 
 .contenido_cita {
     display: flex;
@@ -120,7 +151,7 @@
 }
 
 .numero_cita {
-    color: rgba(0, 0, 0, 0.176);
+    color: #c0ccd579;
     font-size: 20px;
 }
 
@@ -134,7 +165,7 @@
 button[name='editar'] {
     border-radius: 5px;
     padding: 5px 20px;
-    background-color: #0278e0;
+    background-color: #203A6D;
     color: #ffffff;
     border: 1px solid #000000;
     width: 50%;
@@ -142,14 +173,14 @@ button[name='editar'] {
 }
 
 button[name='editar']:hover {
-    background-color: #026cc9;
-    box-shadow: 0 1px 2px 1px #014581;
+    background-color: #026cc9be;
+    box-shadow: 0 1px 2px 1px #026cc9be;
 }
 
 button[name='eliminar'] {
     border-radius: 5px;
     padding: 5px 20px;
-    background-color: #ef1811d6;
+    background-color: #752527;
     color: #ffffff;
     border: 1px solid #000000;
     width: 50%;
@@ -157,8 +188,8 @@ button[name='eliminar'] {
 }
 
 button[name='eliminar']:hover {
-    background-color: #cf0903;
-    box-shadow: 0 1px 2px 1px #670400;
+    background-color: #cf0a03be;
+    box-shadow: 0 1px 2px 1px #cf0a03be;
 }
 
 .cont_img_nombre {
@@ -169,39 +200,119 @@ button[name='eliminar']:hover {
 }
 
 .img_animal {
-    width: 70px;
-    height: 70px;
-    filter: drop-shadow(0 0 3px rgb(0, 0, 0));
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 0 5px rgba(72, 72, 72, 0.288));
 }
 
 
-@media (max-width: 500px) {
-    #cont_citas {
-        grid-template-columns: 1fr;
-    }
-
+@media (max-width:1500px){
     .cont {
-        width: 95%;
-        flex-direction: column;
-        align-items: start;
-        gap: 30px;
+        align-items: end;
+        padding: 0;
+        gap: 20px;
     }
-
-    #cont_citas {
-        width: 98%;
-    }
-
 
     .cont_filtro {
-        align-items: center;
+        width: 70%;
+        justify-content: start;
+    }
+
+    .filtro_estado{
+        max-width: 300px;
+    }
+
+    .filtro_buscar {
+        max-width: 400px;
+    }
+
+    #cont_citas {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+
+@media (max-width:1100px){
+    .cont {
+        align-items: end;
+        padding: 0;
+        gap: 20px;
+    }
+
+    .cont_filtro {
+        width: 70%;
+        justify-content: start;
+    }
+
+    .filtro_estado {
+        width: 70%;
+    }
+
+    .filtro_buscar {
+        width: 80%;
+        
+    }
+
+    #cont_citas {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 900px) {
+    .cont {
+        flex-direction: column;
+        align-items: end;
+        width: 90%;
+        padding: 0;
+        gap: 20px;
+    }
+
+    .cont_filtro {
+        width: 100%;
+    }
+
+    .filtro_estado {
+        width: 100%;
+    }
+
+    .filtro_buscar {
+        width: 100%;
+        
+    }
+
+    #cont_citas {
+        grid-template-columns: 1fr 1fr;
+        width: 90%;
+    }
+}
+
+
+@media (max-width:600px) {
+    .cont {
+        flex-direction: column;
+        align-items: end;
+        width: 95%;
+        padding: 0;
+        gap: 20px;
+    }
+
+    .cont_filtro {
         flex-direction: column;
         width: 100%;
     }
 
-    .cont_search {
-        display: flex;
-        justify-content: center;
-        width: 100% !important;
+    .filtro_estado {
+        width: 100%;
     }
 
+    .filtro_buscar {
+        width: 100%;
+    }
+
+    #cont_citas {
+        grid-template-columns: 1fr;
+        width: 95%;
+    }
 }
