@@ -332,6 +332,7 @@ const Filtrar = () => {
     const estadoSeleccionado = Filtro.value;
     const CitasFiltrada = CitasTotales.filter(cita => cita.Estado == estadoSeleccionado);
     PintarCita(CitasFiltrada);
+    return CitasFiltrada
 };
 
 Filtro.addEventListener("input", () => {
@@ -344,7 +345,8 @@ const Filtrar_Nombres = (nombres) => {
     if (nombres == "") {
         Filtrar()
     } else {
-        let Citasfiltradas = CitasTotales.filter(elemento => elemento.Propietario.toUpperCase().includes(nombres.toUpperCase()) || elemento.NombreMascota.toUpperCase().includes(nombres.toUpperCase()))
+        let citas = Filtrar()
+        let Citasfiltradas = citas.filter(elemento => elemento.Propietario.toUpperCase().includes(nombres.toUpperCase()) || elemento.NombreMascota.toUpperCase().includes(nombres.toUpperCase()))
         PintarCita(Citasfiltradas);
     }
 }
