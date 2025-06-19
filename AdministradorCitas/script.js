@@ -223,10 +223,12 @@ const eliminar = (indexeliminar) => {
 
 // MOSTRAR EN PANTALLA LAS CITAS
 const PintarCita = (CitasAMostrar) => {
+    ContCitas.textContent = ""
     if (CitasAMostrar.length == 0) {
-        ContCitas.textContent = "NO HAY CITAS PROGRAMADAS";
+        document.getElementById("texto").textContent = "NO HAY CITAS PROGRAMADAS"
         return;
     } else {
+        document.getElementById("texto").textContent = "CITAS PROGRAMADAS"
         ContCitas.innerHTML = "";
         CitasAMostrar.sort((a, b) => a.Hora < b.Hora ? -1 : 1)
         CitasAMostrar.sort((a, b) => a.Fecha < b.Fecha ? -1 : 1)
