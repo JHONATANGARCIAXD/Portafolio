@@ -22,10 +22,10 @@ const Estado = document.getElementById("estado")
 const Filtro = document.getElementById("filtro")
 const Search = document.getElementById("search")
 const Modal_Formulario = new bootstrap.Modal(document.getElementById("staticBackdrop"))
-const Modal_Eliminar = document.getElementById("staticeliminar")
+const LabelModal = document.getElementById("staticBackdropLabel")
 const ContCitas = document.getElementById("cont_citas")
 const BtnGuardar = document.getElementById("guardar")
-
+const numero_abiertas = document.getElementById("citas_abiertas")
 
 // VARIALES GLOBALES
 let validacion = false
@@ -169,10 +169,11 @@ const Guardar = () => {
 
             console.log(`ELEMENTO A MODIFICAR: ${CitasTotales[pos]}, POSICION: ${pos}`);
 
-            BtnGuardar.textContent = "Guardar"
             localStorage.setItem("Citas", JSON.stringify(CitasTotales));
             Filtrar()
             limpiar()
+            BtnGuardar.textContent = "Guardar"
+            LabelModal.textContent = "REGISTRAR CITA"
             op = 0
 
             Swal.fire({
@@ -287,6 +288,7 @@ const PintarCita = (CitasAMostrar) => {
             const index = CitasTotales.findIndex(cita => cita.Numero === numeroCita);
             btn.addEventListener("click", () => {
                 BtnGuardar.textContent = "Editar";
+                LabelModal.textContent = "EDITAR CITA"
                 op = 1;
                 pos = index
                 NombreMascota.value = CitasTotales[index].NombreMascota;
