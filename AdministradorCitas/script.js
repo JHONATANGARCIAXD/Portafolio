@@ -304,6 +304,8 @@ const PintarCita = (CitasAMostrar) => {
         });
 
         botonesEliminar.forEach((btn, i) => {
+            const numeroCita = CitasAMostrar[i].Numero;
+            const index = CitasTotales.findIndex(cita => cita.Numero === numeroCita);
             btn.addEventListener("click", () => {
                 Swal.fire({
                     title: "ESTAS SEGURO DE ELIMINAR LA CITA?",
@@ -315,7 +317,7 @@ const PintarCita = (CitasAMostrar) => {
                     confirmButtonText: "SI"
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        eliminar(i)
+                        eliminar(index)
                         Swal.fire({
                             title: "ELIMINADA!",
                             text: "LA CITA HA SIDO ELIMINADA.",
