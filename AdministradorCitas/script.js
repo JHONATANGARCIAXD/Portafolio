@@ -86,7 +86,7 @@ const Validaciones = () => {
             text: "POR FAVOR COMPLETA EL CAMPO FECHA"
         })
     }
-    else if (Fecha.value < solo_fecha) {
+    else if (Fecha.value <= solo_fecha) {
         Swal.fire({
             icon: "warning",
             title: "ERROR DE VALORES",
