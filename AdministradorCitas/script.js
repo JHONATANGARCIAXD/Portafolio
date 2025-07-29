@@ -1,15 +1,10 @@
-const imagenes = [
-    { name: "perro", url: "./img/perro.png" },
-    { name: "gato", url: "./img/gato.png" },
-    { name: "elefante", url: "./img/elefante.png" },
-    { name: "tigre", url: "./img/tigre.png" },
-    { name: "leon", url: "./img/leon.png" },
-    { name: "jirafa", url: "./img/jirafa.png" },
-    { name: "oso", url: "./img/oso.png" },
-    { name: "canguro", url: "./img/canguro.png" },
-    { name: "lobo", url: "./img/lobo.png" },
-    { name: "aguila", url: "./img/aguila.png" }
-];
+const imagenes = [{
+    name: "perro", url: "https://img.pikbest.com/origin/09/09/20/93spIkbEsT8SV.png!sw800"
+},
+{ name: "gato", url: "https://png.pngtree.com/png-vector/20240815/ourlarge/pngtree-funny-cat-cartoon-vector-art-design-png-image_13493469.png" }
+]
+
+
 // FORMULARIO
 const NombreMascota = document.getElementById("nombremascota")
 const Propietario = document.getElementById("propietario")
@@ -22,28 +17,21 @@ const Estado = document.getElementById("estado")
 const Filtro = document.getElementById("filtro")
 const Search = document.getElementById("search")
 const Modal_Formulario = new bootstrap.Modal(document.getElementById("staticBackdrop"))
-const LabelModal = document.getElementById("staticBackdropLabel")
+const Modal_Eliminar = document.getElementById("staticeliminar")
+const Confirmar_Eliminar = document.getElementById("eliminar")
 const ContCitas = document.getElementById("cont_citas")
 const BtnGuardar = document.getElementById("guardar")
-const numero_abiertas = document.getElementById("citas_abiertas")
 
 // VARIALES GLOBALES
 let validacion = false
 let CitasTotales = JSON.parse(localStorage.getItem("Citas")) || [];
+CitasTotales.sort((a, b) => a.Fecha < b.Fecha ? -1 : 1)
 console.log(CitasTotales);
 let op = 0
 let pos
 
 // VALIDACIONES 
 const Validaciones = () => {
-    let fecha_hoy = new Date()
-    let solo_fecha = fecha_hoy.toISOString().split("T")[0]
-    let hora_hot = fecha_hoy.toLocaleTimeString()
-    console.log(hora_hot.split(":")[0]);
-
-
-    let h = Hora.value.split(":")[0]
-    let m = Hora.value.split(":")[1]
     if (NombreMascota.value == "") {
         Swal.fire({
             title: "CAMPO VACIO",
@@ -86,26 +74,12 @@ const Validaciones = () => {
             text: "POR FAVOR COMPLETA EL CAMPO FECHA"
         })
     }
-    else if (Fecha.value <= solo_fecha) {
-        Swal.fire({
-            icon: "warning",
-            title: "ERROR DE VALORES",
-            text: `POR FAVOR PONGA UNA FECHA SUPERIOR`
-        })
-    }
     else if (Hora.value == "") {
         Swal.fire({
             icon: "warning",
             title: "CAMPO VACIO",
             text: "POR FAVOR COMPLETA EL CAMPO HORA"
         })
-    }
-    else if (h < 8 || h > 20 || (h == 20 && m > 0)) {
-        Swal.fire({
-            icon: "warning",
-            title: "HORARIO INVÁLIDO",
-            text: "POR FAVOR CAMBIA LA HORA, LA VETERINARIA ATIENDE DE 8:00 AM A 8:00 PM"
-        });
     }
     else if (TipoMascota.value == "Seleccione Uno") {
         Swal.fire({
@@ -123,8 +97,6 @@ const Validaciones = () => {
     }
     else {
         validacion = true
-        console.log(Hora.value);
-
     }
 }
 // GUARDAR LA CITA EN EL LOCALSTORAGE
@@ -169,11 +141,10 @@ const Guardar = () => {
 
             console.log(`ELEMENTO A MODIFICAR: ${CitasTotales[pos]}, POSICION: ${pos}`);
 
+            BtnGuardar.textContent = "Guardar"
             localStorage.setItem("Citas", JSON.stringify(CitasTotales));
             Filtrar()
             limpiar()
-            BtnGuardar.textContent = "Guardar"
-            LabelModal.textContent = "REGISTRAR CITA"
             op = 0
 
             Swal.fire({
@@ -224,32 +195,25 @@ const eliminar = (indexeliminar) => {
 
 // MOSTRAR EN PANTALLA LAS CITAS
 const PintarCita = (CitasAMostrar) => {
-    ContCitas.textContent = ""
     if (CitasAMostrar.length == 0) {
-        document.getElementById("texto").textContent = "NO HAY CITAS PROGRAMADAS"
+        ContCitas.textContent = "NO HAY CITAS PROGRAMADAS";
         return;
     } else {
-        document.getElementById("texto").textContent = "CITAS PROGRAMADAS"
         ContCitas.innerHTML = "";
-        CitasAMostrar.sort((a, b) => a.Hora < b.Hora ? -1 : 1)
         CitasAMostrar.sort((a, b) => a.Fecha < b.Fecha ? -1 : 1)
         CitasAMostrar.forEach((elemento) => {
             let url2 = imagenes.find((imagen) => { return imagen.name == elemento.TipoMascota })
             ContCitas.innerHTML += `
                 <div class="CardCita">
                     <div class="contenido_cita">
-                        <h3 class="numero_cita">#${elemento.Numero}</h3>
-                        <div class="cont_img_nombre">
-                        <h2>${elemento.NombreMascota}</h2>
-                        <img src = ${url2.url} class="img_animal">
-                        </div>
-                        <div class="info_conte">
-                            <p> <i class="bi bi-person-fill"></i> <span class="negrilla">Propietario: </span> ${elemento.Propietario.toUpperCase()}</p>
-                            <p> <i class="bi bi-telephone-fill"></i> <span class="negrilla">Telefono: </span> ${elemento.Telefono}</p>
-                            <p> <i class="bi bi-calendar2-week-fill"></i> <span class="negrilla">Fecha: </span> ${elemento.Fecha}</p>
-                            <p> <i class="bi bi-clock-fill"></i> <span class="negrilla">Hora: </span>${elemento.Hora}</p>
-                            <p> <i class="bi bi-clipboard2-heart-fill"></i>  <span class="negrilla">Sintomas: </span> ${elemento.Sintomas}</p>
-                        </div>
+                        <h3>${elemento.Numero}</h3>
+                        <h1>${elemento.NombreMascota.toUpperCase()}</h1>
+                        <p>Propietario: ${elemento.Propietario.toUpperCase()}</p>
+                        <p>Telefono: ${elemento.Telefono}</p>
+                        <p>Fecha: ${elemento.Fecha}</p>
+                        <p>Hora: ${elemento.Hora}</p>
+                        <p>Tipo Mascota: ${elemento.TipoMascota.toUpperCase()}</p>
+                        <p>Sintomas: ${elemento.Sintomas}</p>
                     </div>
                     <div>
                         <label>Estado:</label>
@@ -280,6 +244,7 @@ const PintarCita = (CitasAMostrar) => {
                 CitasTotales[index].Estado = select.value;
                 localStorage.setItem("Citas", JSON.stringify(CitasTotales));
                 Filtrar();
+
             });
         });
 
@@ -288,9 +253,9 @@ const PintarCita = (CitasAMostrar) => {
             const index = CitasTotales.findIndex(cita => cita.Numero === numeroCita);
             btn.addEventListener("click", () => {
                 BtnGuardar.textContent = "Editar";
-                LabelModal.textContent = "EDITAR CITA"
                 op = 1;
                 pos = index
+                console.log(pos);
                 NombreMascota.value = CitasTotales[index].NombreMascota;
                 Propietario.value = CitasTotales[index].Propietario;
                 Telefono.value = CitasTotales[index].Telefono;
@@ -304,8 +269,6 @@ const PintarCita = (CitasAMostrar) => {
         });
 
         botonesEliminar.forEach((btn, i) => {
-            const numeroCita = CitasAMostrar[i].Numero;
-            const index = CitasTotales.findIndex(cita => cita.Numero === numeroCita);
             btn.addEventListener("click", () => {
                 Swal.fire({
                     title: "ESTAS SEGURO DE ELIMINAR LA CITA?",
@@ -317,7 +280,7 @@ const PintarCita = (CitasAMostrar) => {
                     confirmButtonText: "SI"
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        eliminar(index)
+                        eliminar(i)
                         Swal.fire({
                             title: "ELIMINADA!",
                             text: "LA CITA HA SIDO ELIMINADA.",
@@ -336,7 +299,6 @@ const Filtrar = () => {
     const estadoSeleccionado = Filtro.value;
     const CitasFiltrada = CitasTotales.filter(cita => cita.Estado == estadoSeleccionado);
     PintarCita(CitasFiltrada);
-    return CitasFiltrada
 };
 
 Filtro.addEventListener("input", () => {
@@ -349,8 +311,7 @@ const Filtrar_Nombres = (nombres) => {
     if (nombres == "") {
         Filtrar()
     } else {
-        let citas = Filtrar()
-        let Citasfiltradas = citas.filter(elemento => elemento.Propietario.toUpperCase().includes(nombres.toUpperCase()) || elemento.NombreMascota.toUpperCase().includes(nombres.toUpperCase()))
+        let Citasfiltradas = CitasTotales.filter(elemento => elemento.Propietario.toUpperCase().includes(nombres.toUpperCase()) || elemento.NombreMascota.toUpperCase().includes(nombres.toUpperCase()))
         PintarCita(Citasfiltradas);
     }
 }
